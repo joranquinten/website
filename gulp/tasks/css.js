@@ -30,7 +30,7 @@ module.exports = function(
           this.emit('end');
         }
       }))
-      .pipe(plugins.scssLint(confPlugins.scssLint))
+      //.pipe(plugins.scssLint(confPlugins.scssLint))
       .pipe(plugins.sass())
       .pipe(plugins.concat(confFileMap.targetFiles.css))
       //.pipe(plugins.uncss({ html: pathFiles(base, confFileMap.sourceFiles.html) })) // UnCSS cleans up unused CSS code, but relies on (static) HTML files in order to extract identifiers, might be interesting for thinning out frameworks.

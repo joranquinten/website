@@ -3,49 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My app</title>
+    <title>JoranQuinten.nl</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <!-- build:css assets/styles.css -->
-    <link rel="stylesheet" href="external/assets/normalize.css" />
-    <!-- endbuild -->
-
-    <!-- build:remove -->
-    <script src="external/assets/localhostDependencies.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js assets/critical.js -->
-    <script src="angular/critical.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:css -->
+    <link rel="stylesheet" href="styles/styles.css" />
     <!-- endbuild -->
 
 
   </head>
-  <body>
+  <body id="home">
     <!--
     Insert content here!
     -->
+
+
     <header>
-
-      This is the header
-
-        <nav>
-
-          This is the navigational part.
-
-        </nav>
-      </header>
+        <div class="site__header animated bounceIn">
+            <h1 class="site__header">Joran Quinten.nl</h1>
+            <span class="site__tagline">Life, picture, tech &amp; wonder: a place to store my stuff&hellip;</span>
+            <nav></nav>
+        </div>
     </header>
+
     <footer>
-
-      This is the footer
-
+        <ul class="social">
+            <li><a href="https://500px.com/joranquinten" title="My Pics"><i class="fa fa-2x fa-500px animated"></i></a></li>
+            <li><a href="https://github.com/joranquinten" title="My Repos"><i class="fa fa-2x fa-github animated"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/joranquinten" title="My LinkedIn"><i class="fa fa-2x fa-linkedin animated"></i></a></li>
+            <li><a href="https://twitter.com/joranquinten" title="My Twitterfeed"><i class="fa fa-2x fa-twitter animated"></i></a></li>
+            <li><a href="mailto:hello@joranquinten.nl" title="My Inbox"><i class="fa fa-2x fa-envelope-o animated"></i></a></li>
+        </ul>
     </footer>
-    
+
     <!-- build:js assets/assets.js -->
-    <script src="external/assets/lib.js"></script>
-    <script src="angular/app.js"></script>
+    <script src="js/app.js"></script>
     <!-- endbuild -->
 
   </body>

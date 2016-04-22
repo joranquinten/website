@@ -1,4 +1,4 @@
 {
-  "server" : "localhost/gulp-boilerplate/develop/index.html",
-  "browsers" : ["google chrome","chrome"]
+  "server" : "localhost/website/develop/index.html",
+  "browsers" : ["google chrome"]
 }

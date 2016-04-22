@@ -5,6 +5,6 @@
     "enableGZIP": false,
     "enableUseref": true,
     "enableRevisioning": true,
-    "packageModules" : true,
-    "transformForAngular": true
+    "packageModules" : false,
+    "transformForAngular": false
 }
