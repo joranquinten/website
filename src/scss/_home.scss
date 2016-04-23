@@ -33,13 +33,14 @@ html {
     font-weight: 300;
 }
 
-#home.isLoading {
+#home .isLoading {
     background-image: url('../images/ripple.gif');
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-#home.isLoaded {
+#home .imageHolder {
+    z-index: -1;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

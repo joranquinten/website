@@ -26,7 +26,7 @@
     "html": [
       "index.html"
     ],
-    "images": "img/**/*.{gif,png,jpeg,jpg,svg}",
+    "images": "images/**/*.{gif,png,jpeg,jpg,svg}",
     "tests": {
       "e2e": [
         "tests/e2e/**/*.js"
@@ -45,7 +45,7 @@
     "js": "js/",
     "css": "styles/",
     "html": "/",
-    "images": "img/",
+    "images": "images/",
     "maps": "./",
     "revManifest": "./src/",
     "zip": "./zip/",

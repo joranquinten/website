@@ -36,40 +36,75 @@
         imgFolder + '/Untitled_HDR3.jpg'
     ];
 
-    var getRandomFromArray = function (arr) {
-
-        var index = getRandomIntInclusive(0, arr.length-1);
-        return arr[index];
-
+    var shuffleArray = function(arr) {
+        for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return arr;
     };
 
-    var getRandomIntInclusive = function (min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-
-    var loadRandomBackgroundImage = function(e, backgrounds){
+    var loadBackgroundImage = function(e, backgrounds){
 
         if (e && backgrounds){
             // init loader animation on target element:
             var element = document.querySelector(e);
             element.classList.add('isLoading');
 
-            // load the actual image
-            var randomImage = getRandomFromArray(backgrounds);
-            var img = new Image();
-            img.onload = function() {
-                // remove loading animation:
-                element.classList.remove('isLoading');
-                // prepare for image
-                element.classList.add('isLoaded');
-                element.style.backgroundImage = 'url('+randomImage+')';
+            var currentIndex = 0;
+            var previousIndex = -1;
+            var displayImage = function(index, previousIndex) {
+
+                previousIndex = currentIndex-1;
+
+                // add element to attach background to
+                var insert = document.createElement('div');
+                var insertId = 'slide-'+ currentIndex;
+
+                insert.setAttribute('id', insertId);
+                var imageHolder = element.appendChild(insert);
+                imageHolder.style.position = 'absolute';
+                imageHolder.style.height = '100%';
+                imageHolder.style.width = '100%';
+                imageHolder.style.top = 0;
+                imageHolder.style.left = 0;
+                imageHolder.classList.add('animated');
+                imageHolder.classList.add('imageHolder');
+
+                // load the actual image
+                var currentImage = backgrounds[index];
+                var img = new Image();
+                img.onload = function() {
+                    // remove loading animation:
+                    element.classList.remove('isLoading');
+
+                    // prepare for image
+                    imageHolder.classList.add('fadeIn');
+                    imageHolder.classList.add('isLoaded');
+                    imageHolder.style.backgroundImage = 'url('+ currentImage +')';
+
+                    // remove previous imageHolder
+                    if (previousIndex >= 0) {
+                        var previousImageHolder = document.querySelector('#slide-'+ previousIndex);
+                        previousImageHolder.classList.add('fadeOut');
+                        var timeout = setTimeout(function(){ previousImageHolder.parentNode.removeChild(previousImageHolder); }, 1000);
+                    }
+                };
+                img.src = currentImage;
+
+                // call itself after first
+                if (currentIndex === 0) {
+                    var interval = setInterval( function() { displayImage(currentIndex, previousIndex); }, 7400);
+                }
+                currentIndex++;
             };
-            img.src = randomImage;
+
+            displayImage(currentIndex, previousIndex);
         }
 
     };
-
-    loadRandomBackgroundImage('#home', backgrounds);
 
     var performMagicTricks = function(){
 
@@ -85,6 +120,10 @@
             }, false);
         });
     };
+
+    shuffleArray(backgrounds);
+
+    loadBackgroundImage('#home', backgrounds);
 
     performMagicTricks();
 
